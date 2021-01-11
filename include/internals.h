@@ -1,4 +1,5 @@
 #include "env.h"
+#include "special.h"
 
 #ifndef INTERNALS_H
 #define INTERNALS_H
@@ -24,4 +25,16 @@ enum EVAL_STATES {
   EV_OR, /* Evaluating arguments of OR */
   EV_COND  /* Evaluating arguments of COND */
 };
+
+// Binding structure
+
+#define make_binding(v, a) (cons((v), (a)))
+#define binding_box(x) (x)
+#define binding_value(x) (x)
+#define box_value(x) (cdr(x))
+
+// Special objects
+// included in special.h
+
+
 #endif // INTERNALS_H
