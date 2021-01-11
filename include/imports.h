@@ -76,6 +76,9 @@
  */
 
 #ifdef _MSC_VER
+  #include <stdio.h>
+  #include <stdlib.h>
+  #include <stddef.h>
   #if _MSC_VER > 1200
     #ifndef _CRT_SECURE_NO_DEPRECATE
       #define _CRT_SECURE_NO_DEPRECATE

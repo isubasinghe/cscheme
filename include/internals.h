@@ -36,5 +36,33 @@ enum EVAL_STATES {
 // Special objects
 // included in special.h
 
+struct PrimitiveProcedure {
+  char *name;
+  cell (*handler) (cell expr);
+  int min_args;
+  int max_args; /* -1 = variadic */
+  int arg_types[3];
+};
+
+#define PRIM_SEG_SIZE 256 
+
+#ifndef EXTERN
+  #define EXTERN extern
+#endif
+
+EXTERN int ConsSegmentSize,
+            VecSegmentSize;
+EXTERN int ConsPoolSize,
+            VecPoolSize;
+
+EXTERN cell *Car,
+            *Cdr;
+
+EXTERN char *Tag;
+
+EXTERN cell *Vectors;
+
+EXTERN cell FreeList;
+EXTERN cell FreeVecs;
 
 #endif // INTERNALS_H
