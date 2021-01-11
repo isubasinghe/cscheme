@@ -21,7 +21,7 @@
 
 #ifndef UNIX
   #ifndef plan9
-    #error "Either, 'unix' or 'plan9' must be defined" 
+    // #error "Either, 'unix' or 'plan9' must be defined" 
   #endif
 #endif
 

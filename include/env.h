@@ -41,5 +41,32 @@
   #endif
 #endif
 
+#ifdef BITS_PER_WORD_64
+  #define DIGITS_PER_WORD 18
+  #ifdef EMULATE_64
+    #define INT_SEG_LIMIT 1000000000000000000LL
+  #else
+    #define INT_SEG_LIMIT 1000000000000000000L
+  #endif
+  #define MANTISSA_SEGMENTS 1
+#else
+  #ifdef BITS_PER_WORD_32
+    #define DIGITS_PER_WORD 9 
+    #define INT_SEG_LIMIT 1000000000L
+    #define MANTISSA_SEGMENTS 2
+  #else
+    #ifdef BITS_PER_WORD_16
+      #define DIGITS_PER_WORD 4
+      #define INT_SEG_LIMIT 10000
+      #define MANTISSA_SEGMENTS 3
+    #else
+      #error "BITS_PER_WORD_* undefined (this should not happen)"
+    #endif
+  #endif
+#endif
+
+#define MANTISSA_SIZE (MANTISSA_SEGMENTS * DIGITS_PER_WORD)
+
+
 
 #endif // ENV_H
