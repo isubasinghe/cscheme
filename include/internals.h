@@ -44,6 +44,8 @@ struct PrimitiveProcedure {
   int arg_types[3];
 };
 
+#define PRIM struct PrimitiveProcedure
+
 #define PRIM_SEG_SIZE 256 
 
 #ifndef EXTERN
@@ -64,5 +66,30 @@ EXTERN cell *Vectors;
 
 EXTERN cell FreeList;
 EXTERN cell FreeVecs;
+
+EXTERN PRIM *Primitives;
+
+EXTERN int LastPrim, MaxPrism;
+
+EXTERN cell   Stack,
+              StackBottom;
+
+EXTERN cell StateStack;
+
+EXTERN cell TmpCar,
+            TmpCdr,
+            Tmp;
+
+EXTERN cell Symbols;
+EXTERN cell Program;
+EXTERN cell Environment;
+EXTERN cell Acc;
+EXTERN cell ApplyMagic,
+            CallccMagic;
+EXTERN cell New;
+EXTERN int Level;
+EXTERN int LoadLevel;
+EXTERN int Displaying;
+
 
 #endif // INTERNALS_H
