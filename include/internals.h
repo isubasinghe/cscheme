@@ -91,5 +91,22 @@ EXTERN int Level;
 EXTERN int LoadLevel;
 EXTERN int Displaying;
 
+EXTERN cell CalledProcedures[MAX_CALL_TRACE];
+EXTERN int  ProcPtr,
+            ProcMax;
+EXTERN cell FileList;
+EXTERN int LineNo;
+EXTERN int OpeningLine;
+EXTERN int  PrinterCount,
+            PrinterLimit;
+
+
+EXTERN cell TraceList;
+
+EXTERN FILE *Ports[MAX_PORTS];
+EXTERN char PortFlags[MAX_PORTS];
+EXTERN int  InputPort,
+            OutputPort,
+            ErrorPort;
 
 #endif // INTERNALS_H
